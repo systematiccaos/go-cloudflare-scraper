@@ -143,7 +143,7 @@ func (t Transport) evaluateJS(js string) (int64, error) {
 
 var jsRegexp = regexp.MustCompile(
 	`setTimeout\(function\(\){\s+(var ` +
-		`s,t,o,p,b,r,e,a,k,i,n,g,f.+?\r?\n[\s\S]+?a\.value =.+?)\r?\n`,
+		`s,t,o,p, b,r,e,a,k,i,n,g,cpo,f.+?\r?\n[\s\S]+?a\.value\s*=.+?)\r?\n`,
 )
 var jsReplace1Regexp = regexp.MustCompile(`a\.value = (parseInt\(.+?\)).+`)
 var jsReplace2Regexp = regexp.MustCompile(`\s{3,}[a-z](?: = |\.).+`)
